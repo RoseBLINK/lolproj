@@ -1,17 +1,16 @@
 #pragma once
 
-class CInterface
+class Interface; //전방선언
+
+class CController
 {
 public:
-	CInterface();
-	~CInterface();
-	
-	void pick_champ();
-	void pick_first();
-	void attack(Champion attack_champ, Champion get_hit_champ);
-	
+    CController();
+    ~CController();
+
+    void init();
+    void start();
 
 private:
-
+    Interface* inter;
 };
-

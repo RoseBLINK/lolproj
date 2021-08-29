@@ -41,9 +41,9 @@ void CInterface::pick_first() //CInterface 가 아닌 다른 클래스로 이동. Interface
     return; //선공 당한사람을 return 해야 할 것 같음
 }
 
-void CInterface::attack(Champion attack_champ, Champion get_hit_champ) // 이것 또한 interface 만 포함, 체력과 딜 등을 계산 하는 클래스는 따로 생성
-{
-    attack_champ.name;
-
-
-}
+//void CInterface::attack(Champion attack_champ, Champion get_hit_champ) // 이것 또한 interface 만 포함, 체력과 딜 등을 계산 하는 클래스는 따로 생성
+//{
+//    attack_champ.name;
+//
+//
+//}
