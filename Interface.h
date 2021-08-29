@@ -1,16 +1,15 @@
 #pragma once
+#include <string>
 
-class Interface; //전방선언
-
-class CController
+class CInterface
 {
 public:
-    CController();
-    ~CController();
+    CInterface();
+    ~CInterface();
 
-    void init();
-    void start();
 
-private:
-    Interface* inter;
+public:
+    std::string pick_champ();
+    bool pick_first();
+    void printChampPickError();
 };

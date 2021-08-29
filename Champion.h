@@ -13,7 +13,6 @@ public:
 	std::string r; //·£´ý
 
 private:
-
 	double dmg;
 	double lv_dmg;
 	double max_dmg;

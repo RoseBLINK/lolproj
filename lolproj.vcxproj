@@ -143,11 +143,13 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="lolproj.cpp" />
+    <ClCompile Include="PlayProcessor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Champion.h" />
+    <ClInclude Include="PlayProcessor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
