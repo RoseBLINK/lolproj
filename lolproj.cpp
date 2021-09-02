@@ -9,5 +9,4 @@ int main()
     CController controller;
     controller.init();
     controller.start();
-
 }

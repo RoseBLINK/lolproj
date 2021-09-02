@@ -1,13 +1,14 @@
 #pragma once
+#include "Processor.h"
 
 class CInterface;
-class PlayProcessor // 플레이
+class PlayProcessor : public Processor
 {
 public:
 	PlayProcessor();
 	~PlayProcessor();
 
-	void run();
+	virtual void run() override final;
 private:
 	CInterface* inter;
 	// 사용자 선택한 챔피언

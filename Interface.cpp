@@ -12,10 +12,13 @@ CInterface::~CInterface()
 {
 }
 
-std::string CInterface::pick_champ()
+std::string CInterface::pick_champ(USER user)
 {
     string pick;
-    cout << "챔피언을 고르십시오: ";
+    if ( user == USER1 )
+        cout << "챔피언을 고르십시오(User1): ";
+    else
+        cout << "챔피언을 고르십시오(User2): ";
     cin >> pick;
 
     return pick;
@@ -29,12 +32,12 @@ bool CInterface::pick_first() //CInterface 가 아닌 다른 클래스로 이동. Interface
 
     int user_pick;
     cout << "선공을 정합니다, user 1이 1과 2중 선택 하십시오: ";
-    cin >> user_pick;
     while (true)
     {
+        cin >> user_pick;
         if (user_pick != 1 && user_pick != 2)
         {
-            cout << "1과 2중에 선택 하십시오." << endl;
+            cout << "1과 2중에 선택 하십시오: ";
             continue;
         }
 
@@ -54,6 +57,11 @@ bool CInterface::pick_first() //CInterface 가 아닌 다른 클래스로 이동. Interface
 void CInterface::printChampPickError()
 {
     printf("챔피언 선택이 잘못되었습니다.\n");
+}
+
+void CInterface::print(const std::string& str)
+{
+    printf("%s\n", str.c_str() );
 }
 
 //void CInterface::attack(Champion attack_champ, Champion get_hit_champ) // 이것 또한 interface 만 포함, 체력과 딜 등을 계산 하는 클래스는 따로 생성

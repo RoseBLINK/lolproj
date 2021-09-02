@@ -141,15 +141,22 @@
   <ItemGroup>
     <ClCompile Include="Champion.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="InitProcessor.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="lolproj.cpp" />
     <ClCompile Include="PlayProcessor.cpp" />
+    <ClCompile Include="ProcessorFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChampionDef.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="InitProcessor.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Champion.h" />
     <ClInclude Include="PlayProcessor.h" />
+    <ClInclude Include="Processor.h" />
+    <ClInclude Include="ProcessorFactory.h" />
+    <ClInclude Include="UserDef.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

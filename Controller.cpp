@@ -1,7 +1,8 @@
-#include <stdio.h>
 #include <iostream>
+#include <stdlib.h>
+#include "Champion.h"
+#include "ProcessorFactory.h"
 #include "Controller.h"
-#include "Interface.h"
 //#include <vector>
 #pragma warning(disable: 4996)
 
@@ -12,7 +13,14 @@ CController::CController()
 
 CController::~CController()
 {
-    delete inter;
+    if (inter)
+        delete inter;
+
+    if ( champ1 )
+        delete champ1;
+
+    if (champ2)
+        delete champ2;
 }
 
 void CController::init()
@@ -64,32 +72,18 @@ void CController::init()
 
 void CController::start()
 {
-    const std::string pick_champ = pick_champ_process();
-    const bool first = inter->pick_first();
+    ProcessorFactory factory;
+    const auto& initProcessor = factory.create(INIT);
+    const auto& playProcessor = factory.create(PLAY);
 
+    // Initialize
+    initProcessor->setChampInfo(champInfo);
+    initProcessor->run();
+
+    // Play
     playProcessor->run();
-    createChamp();
 
+    // Surren
 }
 
-bool CController::validate_champ(const std::string& champ)
-{
-    const auto& itr = champInfo.find(champ);
-    return itr != champInfo.end();
-}
 
-std::string CController::pick_champ_process()
-{
-    while (true)
-    {
-        std::string champ = inter->pick_champ();
-        if (!validate_champ(champ))
-        {
-            inter->printChampPickError();
-            continue;
-        }
-
-        return champ;
-    }
-    
-}
