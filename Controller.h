@@ -13,6 +13,7 @@ public:
 
 	void init();
 	void start();
+	bool createChamp(const std::string& pickChamp1, const std::string& pickChamp2);
 
 private:
 	CInterface* inter;

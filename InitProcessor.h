@@ -14,8 +14,6 @@ private:
 
 	bool validate_champ(const std::string& champ);
 	std::string pick_champ_process(USER user);
-	bool createChamp(const std::string& pickChamp1, const std::string& pickChamp2);
-
 };
 
 

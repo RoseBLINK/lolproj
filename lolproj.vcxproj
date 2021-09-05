@@ -146,6 +146,7 @@
     <ClCompile Include="lolproj.cpp" />
     <ClCompile Include="PlayProcessor.cpp" />
     <ClCompile Include="ProcessorFactory.cpp" />
+    <ClCompile Include="StringUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChampionDef.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="PlayProcessor.h" />
     <ClInclude Include="Processor.h" />
     <ClInclude Include="ProcessorFactory.h" />
+    <ClInclude Include="StringUtil.h" />
     <ClInclude Include="UserDef.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

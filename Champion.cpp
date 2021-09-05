@@ -1,5 +1,6 @@
 #include "Champion.h"
 #include "ChampionDef.h"
+#include "StringUtil.h"
 #include <iostream>
 
 Champion::Champion()
@@ -33,6 +34,9 @@ void Champion::setInfo(const ChampInfo& _info)
 
 void Champion::setDefaultInfo()
 {
+    std::string a;
+    //CStringUtil::getInstance()->getReverse(a); //ΩÃ±€≈Ê
+
     lv = 1;
     dmg = info.stat[DMG];
     hp = info.stat[HP];

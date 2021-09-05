@@ -17,6 +17,14 @@ enum CHAMP_STAT
 	CHAMP_STAT_COUNT,
 };
 
+enum SKILL
+{
+	Q,
+	W,
+	E,
+	R,
+};
+
 struct ChampInfo
 {
 	double stat[CHAMP_STAT_COUNT];

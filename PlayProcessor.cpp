@@ -1,3 +1,4 @@
+#include <windows.h>
 #include "PlayProcessor.h"
 
 PlayProcessor::PlayProcessor()
@@ -8,13 +9,14 @@ PlayProcessor::~PlayProcessor()
 {
 }
 
-void PlayProcessor::run()
+void PlayProcessor::play(Champion* champ1, Champion* champ2, bool first)
 {
     inter->print("게임이 시작되었습니다.");
 
     int count = 0;
     int maxCount = 5;
-    bool turn_user1 = isUser1First;
+    bool turn_user1 = first;
+    //CStringUtil util;
     while (true)
     {
         if (turn_user1)
@@ -25,6 +27,8 @@ void PlayProcessor::run()
         }
         else
         {
+            CStringUtil::getInstance().getSkillName("", Q);
+            //printf("skill: %s", util.getSkillName(champ2.name, Q));
             champ2->printinfo();
             champ2->attack(champ1);
             champ1->printHP();
@@ -35,9 +39,6 @@ void PlayProcessor::run()
         else
             turn_user1 = true;
 
-        _sleep(3000);
+        Sleep(3000);
     }
-
-
-    return true;
 }

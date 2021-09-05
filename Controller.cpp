@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
 #include "Champion.h"
 #include "ProcessorFactory.h"
 #include "Controller.h"
@@ -56,17 +55,17 @@ void CController::init()
         }
 
         champInfo[champName] = info;
-        printf("insert champ(%s) \n", champName.c_str());
+        //printf("insert champ(%s) \n", champName.c_str());
     }
 
     fclose(fd);
 
-    //for (const auto& a : champInfo)
-    //{
-    //    printf("[%s] %g %g %g %g %g %g %g %g %g %g %g %g", a.first.c_str(), a.second.stat[0], a.second.stat[1], a.second.stat[2], a.second.stat[3], a.second.stat[4],
-    //        a.second.stat[5], a.second.stat[6], a.second.stat[7], a.second.stat[8], a.second.stat[9], a.second.stat[10], a.second.stat[11]);
-    //    printf("\n");
-    //}
+    printf("[CHAMPION LIST]\n");
+    for (const auto& a : champInfo)
+    {
+        printf("%s,", a.first.c_str());
+    }
+    printf("\n");
 
 }
 
@@ -78,12 +77,30 @@ void CController::start()
 
     // Initialize
     initProcessor->setChampInfo(champInfo);
-    initProcessor->run();
+    initProcessor->run();                                         //state pattern
+
+    const auto& pairChamp = initProcessor->getPickChamp();
+    createChamp(pairChamp.first, pairChamp.second);
 
     // Play
-    playProcessor->run();
+    playProcessor->play(champ1, champ2, initProcessor->getFirst());
 
     // Surren
 }
 
+bool CController::createChamp(const std::string& pickChamp1, const std::string& pickChamp2)
+{
+    if (champInfo.count(pickChamp1) < 1 || champInfo.count(pickChamp2) < 1)
+    {
+        inter->print("챔피언을 만들 수 없습니다.");
+        return false;
+    }
 
+    const auto& itr1 = champInfo.find(pickChamp1);
+    const auto& itr2 = champInfo.find(pickChamp2);
+
+    champ1 = new Champion(itr1->first, itr1->second);
+    champ2 = new Champion(itr2->first, itr2->second);
+
+    return true;
+}
